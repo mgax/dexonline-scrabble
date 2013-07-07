@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+
+  <body>
+    {% set LIB = 'http://localhost:8013/lib' %}
+    <script src="{{ LIB }}/jquery-1.8.3/jquery-1.8.3.js"></script>
+    <script>
+      window.SD = {
+        STATIC: {{ url_for('static', filename='')|tojson|safe }}
+      };
+    </script>
+    <script src="{{ url_for('static', filename='scrabble.js') }}"></script>
+  </body>
+</html>
