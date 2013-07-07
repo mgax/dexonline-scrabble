@@ -1,17 +1,17 @@
 (function() {
 
 
-var words = null;
+SD.words = null;
 
 $.get(SD.STATIC + 'forme.json').done(function(data) {
-    words = {};
+    SD.words = {};
     _(data).forEach(function(word) {
-        words[word] = true;
+        SD.words[word] = true;
     });
 });
 
 
-var letter_map = {
+SD.letter_map = {
     'Ș': 'S',
     'Ş': 'S',
     'Ț': 'T',
@@ -22,11 +22,11 @@ var letter_map = {
 };
 
 
-var normalize = function(word) {
+SD.normalize = function(word) {
     var new_word = '';
     _(word.toUpperCase()).forEach(function(letter) {
-        if(letter_map[letter]) {
-            letter = letter_map[letter];
+        if(SD.letter_map[letter]) {
+            letter = SD.letter_map[letter];
         }
         new_word += letter;
     });
@@ -37,12 +37,12 @@ var normalize = function(word) {
 var form = $('form[name=scrabble]');
 form.submit(function(evt) {
     evt.preventDefault();
-    var word = normalize(form.find('[name=q]').val());
+    var word = SD.normalize(form.find('[name=q]').val());
     var out = form.find('p');
-    if(! words) {
+    if(! SD.words) {
         out.text('se încarcă');
     }
-    else if(words[word]) {
+    else if(SD.words[word]) {
         out.text(word + ' e ok');
     }
     else {
