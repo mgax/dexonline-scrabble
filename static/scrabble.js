@@ -2,12 +2,17 @@
 
 
 SD.words = null;
+SD.form = $('form[name=scrabble]');
+SD.out = SD.form.find('p');
+SD.out.text('se încarcă');
+
 
 $.get('static/forme.json').done(function(data) {
     SD.words = {};
     _(data).forEach(function(word) {
         SD.words[word] = true;
     });
+    SD.out.text('-');
 });
 
 
@@ -34,19 +39,17 @@ SD.normalize = function(word) {
 };
 
 
-var form = $('form[name=scrabble]');
-form.submit(function(evt) {
+SD.form.submit(function(evt) {
     evt.preventDefault();
-    var word = SD.normalize(form.find('[name=q]').val());
-    var out = form.find('p');
+    var word = SD.normalize(SD.form.find('[name=q]').val());
     if(! SD.words) {
-        out.text('se încarcă');
+        SD.out.text('se încarcă');
     }
     else if(SD.words[word]) {
-        out.text(word + ' e ok');
+        SD.out.text(word + ' e ok');
     }
     else {
-        out.text(word + ' nu există');
+        SD.out.text(word + ' nu există');
     }
 });
 
