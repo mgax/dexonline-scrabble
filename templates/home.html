@@ -5,8 +5,15 @@
   </head>
 
   <body>
+    <form name="scrabble">
+      <input type="search" name="q" autofocus>
+      <button type="submit">caută</button>
+      <p></p>
+    </form>
+
     {% set LIB = 'http://localhost:8013/lib' %}
     <script src="{{ LIB }}/jquery-1.8.3/jquery-1.8.3.js"></script>
+    <script src="{{ LIB }}/underscore-1.4.3/underscore.js"></script>
     <script>
       window.SD = {
         STATIC: {{ url_for('static', filename='')|tojson|safe }}
