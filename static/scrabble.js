@@ -3,7 +3,7 @@
 
 SD.words = null;
 
-$.get(SD.STATIC + 'forme.json').done(function(data) {
+$.get('/static/forme.json').done(function(data) {
     SD.words = {};
     _(data).forEach(function(word) {
         SD.words[word] = true;
