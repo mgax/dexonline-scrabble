@@ -2,14 +2,31 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      .jumbotron h1 {
+        font-size: 90%;
+      }
+    </style>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
   </head>
 
   <body>
-    <form name="scrabble">
-      <input type="search" name="q" autofocus>
-      <button type="submit">caută</button>
-      <p></p>
-    </form>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Dicționar Scrabble</h1>
+        <form class="form-inline" name="scrabble">
+          <div class="form-group">
+            <input class="form-control" type="search"
+                   name="q" placeholder="... cuvânt ..." autofocus>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit">caută</button>
+          </div>
+        </form>
+        <p class="result"></p>
+      </div>
+    </div>
 
     <script src="static/jquery-1.8.3.js"></script>
     <script src="static/underscore.js"></script>
@@ -20,7 +37,7 @@
       var SD = window.SD = {};
 
       SD.form = $('form[name=scrabble]');
-      SD.out = SD.form.find('p');
+      SD.out = $('.result');
 
 
       SD.letter_map = {
