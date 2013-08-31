@@ -1,4 +1,7 @@
+#!/usr/bin/env python
+
 import flask
+from flask.ext.script import Manager
 
 
 app = flask.Flask(__name__, template_folder='.')
@@ -9,4 +12,4 @@ def home():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    Manager(app).run()
