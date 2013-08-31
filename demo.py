@@ -4,7 +4,7 @@ import flask
 from flask.ext.script import Manager
 
 
-app = flask.Flask(__name__, template_folder='.')
+app = flask.Flask(__name__)
 
 
 @app.route('/')
