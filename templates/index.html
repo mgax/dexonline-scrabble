@@ -7,6 +7,9 @@
       .jumbotron h1 {
         font-size: 90%;
       }
+      footer {
+        text-align: right;
+      }
     </style>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
   </head>
@@ -24,9 +27,14 @@
             <button class="btn btn-primary" type="submit">caută</button>
           </div>
         </form>
-        <p class="result"></p>
+        <p class="result">&nbsp;</p>
+        <p class="footer">footer</p>
       </div>
     </div>
+    <footer class="container">
+      {% set url = "https://github.com/mgax/dexonline-scrabble#readme" %}
+      <a href="{{ url }}">detalii proiect</a>
+    </footer>
 
     <script src="static/jquery-1.8.3.js"></script>
     <script src="static/underscore.js"></script>
