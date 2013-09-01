@@ -4,8 +4,8 @@ from flask import json
 
 @fixture
 def client():
-    import demo
-    app = demo.app
+    import scrabble
+    app = scrabble.app
     client = app.test_client()
     return client
 
