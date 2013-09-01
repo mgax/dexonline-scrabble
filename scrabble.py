@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 
+import os
 import flask
 from flask.ext.script import Manager
 
 
 app = flask.Flask(__name__)
+app.debug = (os.environ.get('DEBUG') == 'on')
 
 
 @app.route('/')
@@ -24,5 +26,4 @@ def check():
 
 
 if __name__ == '__main__':
-    app.debug = True
     Manager(app).run()
