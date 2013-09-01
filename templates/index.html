@@ -71,12 +71,11 @@
           SD.out.text('...');
 
           $.get('check', {word: word}).done(function(result) {
-            if(result.match) {
-                SD.out.text(word + ' e ok');
-            }
-            else {
-                SD.out.text(word + ' nu există');
-            }
+            var url = ('http://dexonline.ro/definitie/'
+                       + encodeURIComponent(word));
+            var word_link = $('<a>', {href: url}).text(word);
+            var message = result.match ? ' e ok' : ' nu există';
+            SD.out.empty().append(word_link, message);
           });
 
           word_input.select();
