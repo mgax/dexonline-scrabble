@@ -65,7 +65,10 @@
 
       SD.form.submit(function(evt) {
           evt.preventDefault();
-          var word = SD.normalize(SD.form.find('[name=q]').val());
+          var word_input = SD.form.find('[name=q]');
+          var word = SD.normalize(word_input.val());
+
+          SD.out.text('...');
 
           $.get('check', {word: word}).done(function(result) {
             if(result.match) {
@@ -75,6 +78,8 @@
                 SD.out.text(word + ' nu există');
             }
           });
+
+          word_input.select();
       });
     })();
     </script>
