@@ -3,32 +3,47 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
     <style>
-      .jumbotron h1 {
-        font-size: 90%;
+      .mainbox {
+        background-color: #eee;
+        padding: 10px;
+      }
+      h1 {
+        text-align: center;
+        font-size: 28px;
+      }
+      .result {
+        margin: 10px 0;
+        font-size: 16px;
+      }
+      .search {
+        max-width: 250px;
+        margin: 0 auto;
+      }
+      .search input {
+        width: 70%;
+        display: inline-block;
+        font-size: 16px;
+      }
+      .search button {
+        width: 25%;
       }
       footer {
         text-align: right;
       }
     </style>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
   </head>
 
   <body>
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Dicționar Scrabble</h1>
-        <form class="form-inline" name="scrabble">
-          <div class="form-group">
-            <input class="form-control" type="search"
-                   name="q" placeholder="... cuvânt ..." autofocus>
-          </div>
-          <div class="form-group">
-            <button class="btn btn-primary" type="submit">caută</button>
-          </div>
-        </form>
+    <div class="container mainbox">
+      <h1>Dicționar Scrabble</h1>
+      <form class="search">
+        <input class="form-control" type="search"
+               name="q" placeholder="... cuvânt ..." autofocus>
+        <button class="btn btn-primary" type="submit">caută</button>
         <p class="result">&nbsp;</p>
-      </div>
+      </form>
     </div>
     <footer class="container">
       {% set url = "https://github.com/mgax/dexonline-scrabble#readme" %}
@@ -43,7 +58,7 @@
 
       var SD = window.SD = {};
 
-      SD.form = $('form[name=scrabble]');
+      SD.form = $('.search');
       SD.out = $('.result');
 
 
