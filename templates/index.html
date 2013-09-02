@@ -95,7 +95,7 @@
           $.get('check', {word: word}).done(function(result) {
             var url = ('http://dexonline.ro/definitie/'
                        + encodeURIComponent(word));
-            var word_link = $('<a>', {href: url}).text(word);
+            var word_link = $('<a>', {href: url, target: '_blank'}).text(word);
             var message = result.match ? ' e ok' : ' nu există';
             SD.out.empty().append(word_link, message);
           });
