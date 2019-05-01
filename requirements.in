@@ -1,0 +1,5 @@
+pytest
+chaussette
+Flask-Script
+Flask
+waitress

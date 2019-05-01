@@ -1,3 +1,0 @@
--r requirements.txt
-py==1.4.15
-pytest==2.3.5
